@@ -1,0 +1,17 @@
+V "GNAT Lib v4.6"
+M P W=b
+P
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+
+U main%b		main.adb		0e654e44 NE OO SU IL
+W compass%s		compass.adb		compass.ali
+
+D compass.ads		20180626035104 b5573251
+D main.adb		20180626042825 bb327c15
+D system.ads		20100122115545 d30b9abe
+X 1 compass.ads
+1K9*compass 3e12 2|1w6 1r19
+2U11*start 2|5s17
+X 2 main.adb
+3U11*main 3b11 6t12
+

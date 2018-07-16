@@ -1,0 +1,228 @@
+with Interfaces.C; use Interfaces.C;
+with asm_generic_int_ll64_h;
+with Interfaces.C.Strings;
+with Interfaces.C;
+
+package i2c_dev_h is
+
+   --  unsupported macro: I2C_M_TEN 0x10
+   --  unsupported macro: I2C_M_RD 0x01
+   --  unsupported macro: I2C_M_NOSTART 0x4000
+   --  unsupported macro: I2C_M_REV_DIR_ADDR 0x2000
+   --  unsupported macro: I2C_M_IGNORE_NAK 0x1000
+   --  unsupported macro: I2C_M_NO_RD_ACK 0x0800
+   --  unsupported macro: I2C_FUNC_I2C 0x00000001
+   --  unsupported macro: I2C_FUNC_10BIT_ADDR 0x00000002
+   --  unsupported macro: I2C_FUNC_PROTOCOL_MANGLING 0x00000004
+   --  unsupported macro: I2C_FUNC_SMBUS_PEC 0x00000008
+   --  unsupported macro: I2C_FUNC_SMBUS_BLOCK_PROC_CALL 0x00008000
+   --  unsupported macro: I2C_FUNC_SMBUS_QUICK 0x00010000
+   --  unsupported macro: I2C_FUNC_SMBUS_READ_BYTE 0x00020000
+   --  unsupported macro: I2C_FUNC_SMBUS_WRITE_BYTE 0x00040000
+   --  unsupported macro: I2C_FUNC_SMBUS_READ_BYTE_DATA 0x00080000
+   --  unsupported macro: I2C_FUNC_SMBUS_WRITE_BYTE_DATA 0x00100000
+   --  unsupported macro: I2C_FUNC_SMBUS_READ_WORD_DATA 0x00200000
+   --  unsupported macro: I2C_FUNC_SMBUS_WRITE_WORD_DATA 0x00400000
+   --  unsupported macro: I2C_FUNC_SMBUS_PROC_CALL 0x00800000
+   --  unsupported macro: I2C_FUNC_SMBUS_READ_BLOCK_DATA 0x01000000
+   --  unsupported macro: I2C_FUNC_SMBUS_WRITE_BLOCK_DATA 0x02000000
+   --  unsupported macro: I2C_FUNC_SMBUS_READ_I2C_BLOCK 0x04000000
+   --  unsupported macro: I2C_FUNC_SMBUS_WRITE_I2C_BLOCK 0x08000000
+   --  unsupported macro: I2C_FUNC_SMBUS_BYTE (I2C_FUNC_SMBUS_READ_BYTE | I2C_FUNC_SMBUS_WRITE_BYTE)
+   --  unsupported macro: I2C_FUNC_SMBUS_BYTE_DATA (I2C_FUNC_SMBUS_READ_BYTE_DATA | I2C_FUNC_SMBUS_WRITE_BYTE_DATA)
+   --  unsupported macro: I2C_FUNC_SMBUS_WORD_DATA (I2C_FUNC_SMBUS_READ_WORD_DATA | I2C_FUNC_SMBUS_WRITE_WORD_DATA)
+   --  unsupported macro: I2C_FUNC_SMBUS_BLOCK_DATA (I2C_FUNC_SMBUS_READ_BLOCK_DATA | I2C_FUNC_SMBUS_WRITE_BLOCK_DATA)
+   --  unsupported macro: I2C_FUNC_SMBUS_I2C_BLOCK (I2C_FUNC_SMBUS_READ_I2C_BLOCK | I2C_FUNC_SMBUS_WRITE_I2C_BLOCK)
+   --  unsupported macro: I2C_FUNC_SMBUS_HWPEC_CALC I2C_FUNC_SMBUS_PEC
+   I2C_SMBUS_BLOCK_MAX : Integer := 32;--  unsupported macro: I2C_SMBUS_BLOCK_MAX 32
+   --  unsupported macro: I2C_SMBUS_I2C_BLOCK_MAX 32
+   --  unsupported macro: I2C_SMBUS_READ 1
+   --  unsupported macro: I2C_SMBUS_WRITE 0
+   --  unsupported macro: I2C_SMBUS_QUICK 0
+   --  unsupported macro: I2C_SMBUS_BYTE 1
+   --  unsupported macro: I2C_SMBUS_BYTE_DATA 2
+   --  unsupported macro: I2C_SMBUS_WORD_DATA 3
+   --  unsupported macro: I2C_SMBUS_PROC_CALL 4
+   --  unsupported macro: I2C_SMBUS_BLOCK_DATA 5
+   --  unsupported macro: I2C_SMBUS_I2C_BLOCK_BROKEN 6
+   --  unsupported macro: I2C_SMBUS_BLOCK_PROC_CALL 7
+   --  unsupported macro: I2C_SMBUS_I2C_BLOCK_DATA 8
+   --  unsupported macro: I2C_RETRIES 0x0701
+   --  unsupported macro: I2C_TIMEOUT 0x0702
+   I2C_SLAVE : Interfaces.C.unsigned_long := 1795;     --  unsupported macro: I2C_SLAVE 0x0703
+   --  unsupported macro: I2C_SLAVE_FORCE 0x0706
+   --  unsupported macro: I2C_TENBIT 0x0704
+   --  unsupported macro: I2C_FUNCS 0x0705
+   --  unsupported macro: I2C_RDWR 0x0707
+   --  unsupported macro: I2C_PEC 0x0708
+   --  unsupported macro: I2C_SMBUS 0x0720
+   --  unsupported macro: I2C_RDRW_IOCTL_MAX_MSGS 42
+  --    i2c-dev.h - i2c-bus driver, char device interface
+  --    Copyright (C) 1995-97 Simon G. Vogl
+  --    Copyright (C) 1998-99 Frodo Looijaard <frodol@dds.nl>
+  --    This program is free software; you can redistribute it and/or modify
+  --    it under the terms of the GNU General Public License as published by
+  --    the Free Software Foundation; either version 2 of the License, or
+  --    (at your option) any later version.
+  --    This program is distributed in the hope that it will be useful,
+  --    but WITHOUT ANY WARRANTY; without even the implied warranty of
+  --    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  --    GNU General Public License for more details.
+  --    You should have received a copy of the GNU General Public License
+  --    along with this program; if not, write to the Free Software
+  --    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+  --    MA 02110-1301 USA.
+  -- 
+
+  -- -- i2c.h --  
+  -- * I2C Message - used for pure i2c transaction, also from /dev interface
+  --  
+
+  -- slave address			 
+   type i2c_msg is record
+      addr : aliased asm_generic_int_ll64_h.uu_u16;  -- i2c-dev.h:38
+      flags : aliased unsigned_short;  -- i2c-dev.h:39
+      len : aliased short;  -- i2c-dev.h:46
+      buf : Interfaces.C.Strings.chars_ptr;  -- i2c-dev.h:47
+   end record;
+   pragma Convention (C_Pass_By_Copy, i2c_msg);  -- i2c-dev.h:37
+
+  -- msg length				 
+  -- pointer to msg data			 
+  -- To determine what functionality is present  
+  -- Old name, for compatibility  
+  -- * Data for SMBus Messages
+  --  
+
+   type anon693_anon695_array is array (0 .. 33) of aliased asm_generic_int_ll64_h.uu_u8;
+   type i2c_smbus_data (discr : unsigned := 0) is record
+      case discr is
+         when 0 =>
+            byte : aliased asm_generic_int_ll64_h.uu_u8;  -- i2c-dev.h:90
+         when 1 =>
+            word : aliased asm_generic_int_ll64_h.uu_u16;  -- i2c-dev.h:91
+         when others =>
+            block : aliased anon693_anon695_array;  -- i2c-dev.h:92
+      end case;
+   end record;
+   pragma Convention (C_Pass_By_Copy, i2c_smbus_data);
+   pragma Unchecked_Union (i2c_smbus_data);  -- i2c-dev.h:89
+
+  -- block[0] is used for length  
+  -- and one more for PEC  
+  -- smbus_access read or write markers  
+  -- SMBus transaction types (size parameter in the above functions)
+  --   Note: these no longer correspond to the (arbitrary) PIIX4 internal codes!  
+
+  -- /dev/i2c-X ioctl commands.  The ioctl's parameter is always an
+  -- * unsigned long, except for:
+  -- *	- I2C_FUNCS, takes pointer to an unsigned long
+  -- *	- I2C_RDWR, takes pointer to struct i2c_rdwr_ioctl_data
+  -- *	- I2C_SMBUS, takes pointer to struct i2c_smbus_ioctl_data
+  --  
+
+  -- NOTE: Slave address is 7 or 10 bits, but 10-bit addresses
+  -- * are NOT supported! (due to code brokenness)
+  --  
+
+  -- This is the structure as used in the I2C_SMBUS ioctl call  
+   type i2c_smbus_ioctl_data is record
+      read_write : aliased asm_generic_int_ll64_h.uu_u8;  -- i2c-dev.h:141
+      command : aliased asm_generic_int_ll64_h.uu_u8;  -- i2c-dev.h:142
+      size : aliased asm_generic_int_ll64_h.uu_u32;  -- i2c-dev.h:143
+      data : access i2c_smbus_data;  -- i2c-dev.h:144
+   end record;
+   pragma Convention (C_Pass_By_Copy, i2c_smbus_ioctl_data);  -- i2c-dev.h:140
+
+  -- This is the structure as used in the I2C_RDWR ioctl call  
+  -- pointers to i2c_msgs  
+   type i2c_rdwr_ioctl_data is record
+      msgs : access i2c_msg;  -- i2c-dev.h:149
+      nmsgs : aliased asm_generic_int_ll64_h.uu_u32;  -- i2c-dev.h:150
+   end record;
+   pragma Convention (C_Pass_By_Copy, i2c_rdwr_ioctl_data);  -- i2c-dev.h:148
+
+  -- number of i2c_msgs  
+   function i2c_smbus_access
+     (file : int;
+      read_write : char;
+      command : asm_generic_int_ll64_h.uu_u8;
+      size : int;
+      data : access i2c_smbus_data) return asm_generic_int_ll64_h.uu_s32;  -- i2c-dev.h:156
+   pragma Import (C, i2c_smbus_access, "i2c_smbus_access");
+
+   function i2c_smbus_write_quick (file : int; value : asm_generic_int_ll64_h.uu_u8) return asm_generic_int_ll64_h.uu_s32;  -- i2c-dev.h:169
+   pragma Import (C, i2c_smbus_write_quick, "i2c_smbus_write_quick");
+
+   function i2c_smbus_read_byte (file : int) return asm_generic_int_ll64_h.uu_s32;  -- i2c-dev.h:174
+   pragma Import (C, i2c_smbus_read_byte, "i2c_smbus_read_byte");
+
+   function i2c_smbus_write_byte (file : int; value : asm_generic_int_ll64_h.uu_u8) return asm_generic_int_ll64_h.uu_s32;  -- i2c-dev.h:183
+   pragma Import (C, i2c_smbus_write_byte, "i2c_smbus_write_byte");
+
+   function i2c_smbus_read_byte_data (file : int; command : asm_generic_int_ll64_h.uu_u8) return asm_generic_int_ll64_h.uu_s32;  -- i2c-dev.h:189
+   pragma Import (C, i2c_smbus_read_byte_data, "i2c_smbus_read_byte_data");
+
+   function i2c_smbus_write_byte_data
+     (file : int;
+      command : asm_generic_int_ll64_h.uu_u8;
+      value : asm_generic_int_ll64_h.uu_u8) return asm_generic_int_ll64_h.uu_s32;  -- i2c-dev.h:199
+   pragma Import (C, i2c_smbus_write_byte_data, "i2c_smbus_write_byte_data");
+
+   function i2c_smbus_read_word_data (file : int; command : asm_generic_int_ll64_h.uu_u8) return asm_generic_int_ll64_h.uu_s32;  -- i2c-dev.h:208
+   pragma Import (C, i2c_smbus_read_word_data, "i2c_smbus_read_word_data");
+
+   function i2c_smbus_write_word_data
+     (file : int;
+      command : asm_generic_int_ll64_h.uu_u8;
+      value : asm_generic_int_ll64_h.uu_u16) return asm_generic_int_ll64_h.uu_s32;  -- i2c-dev.h:218
+   pragma Import (C, i2c_smbus_write_word_data, "i2c_smbus_write_word_data");
+
+   function i2c_smbus_process_call
+     (file : int;
+      command : asm_generic_int_ll64_h.uu_u8;
+      value : asm_generic_int_ll64_h.uu_u16) return asm_generic_int_ll64_h.uu_s32;  -- i2c-dev.h:227
+   pragma Import (C, i2c_smbus_process_call, "i2c_smbus_process_call");
+
+  -- Returns the number of read bytes  
+   function i2c_smbus_read_block_data
+     (file : int;
+      command : asm_generic_int_ll64_h.uu_u8;
+      values : access asm_generic_int_ll64_h.uu_u8) return asm_generic_int_ll64_h.uu_s32;  -- i2c-dev.h:240
+   pragma Import (C, i2c_smbus_read_block_data, "i2c_smbus_read_block_data");
+
+   function i2c_smbus_write_block_data
+     (file : int;
+      command : asm_generic_int_ll64_h.uu_u8;
+      length : asm_generic_int_ll64_h.uu_u8;
+      values : access asm_generic_int_ll64_h.uu_u8) return asm_generic_int_ll64_h.uu_s32;  -- i2c-dev.h:255
+   pragma Import (C, i2c_smbus_write_block_data, "i2c_smbus_write_block_data");
+
+  -- Returns the number of read bytes  
+  -- Until kernel 2.6.22, the length is hardcoded to 32 bytes. If you
+  --   ask for less than 32 bytes, your code will only work with kernels
+  --   2.6.23 and later.  
+
+   function i2c_smbus_read_i2c_block_data
+     (file : int;
+      command : asm_generic_int_ll64_h.uu_u8;
+      length : asm_generic_int_ll64_h.uu_u8;
+      values : access asm_generic_int_ll64_h.uu_u8) return asm_generic_int_ll64_h.uu_s32;  -- i2c-dev.h:273
+   pragma Import (C, i2c_smbus_read_i2c_block_data, "i2c_smbus_read_i2c_block_data");
+
+   function i2c_smbus_write_i2c_block_data
+     (file : int;
+      command : asm_generic_int_ll64_h.uu_u8;
+      length : asm_generic_int_ll64_h.uu_u8;
+      values : access asm_generic_int_ll64_h.uu_u8) return asm_generic_int_ll64_h.uu_s32;  -- i2c-dev.h:293
+   pragma Import (C, i2c_smbus_write_i2c_block_data, "i2c_smbus_write_i2c_block_data");
+
+  -- Returns the number of read bytes  
+   function i2c_smbus_block_process_call
+     (file : int;
+      command : asm_generic_int_ll64_h.uu_u8;
+      length : asm_generic_int_ll64_h.uu_u8;
+      values : access asm_generic_int_ll64_h.uu_u8) return asm_generic_int_ll64_h.uu_s32;  -- i2c-dev.h:309
+   pragma Import (C, i2c_smbus_block_process_call, "i2c_smbus_block_process_call");
+
+end i2c_dev_h;

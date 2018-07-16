@@ -1,0 +1,6 @@
+with compass; use compass;
+
+procedure body main is
+	begin
+		start;
+	end;

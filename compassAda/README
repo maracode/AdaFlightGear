@@ -1,0 +1,7 @@
+compiling:
+
+gnatmake main
+gcc -c i2c_interface.c
+gnatlink main i2c_interface.o
+
+

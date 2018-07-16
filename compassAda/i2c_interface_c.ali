@@ -1,0 +1,46 @@
+V "GNAT Lib v4.6"
+P
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+
+U i2c_interface_c%s	i2c_interface_c.ads	0739dc52 NE OO PK IL
+W asm_generic_int_ll64_h%s  asm_generic_int_ll64_h.ads  asm_generic_int_ll64_h.ali
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.adb			i-c.ali
+
+D ada.ads		20070406091342 3ffc8e18
+D a-unccon.ads		20070406091342 f9eb8f06
+D asm_generic_int_ll64_h.ads  20180626014704 81dc4cda
+D i2c_interface_c.ads	20180626154315 0679a84c
+D interfac.ads		20090409150019 f77d8799
+D i-c.ads		20101007125900 809c38c4
+D i-cexten.ads		20101019103052 1e6d46de
+D system.ads		20100122115545 d30b9abe
+D s-exctab.ads		20090417131547 66e51330
+D s-parame.ads		20091130110856 9c5d83fa
+D s-stalib.ads		20101021102512 c4241c00
+X 3 asm_generic_int_ll64_h.ads
+4K9*asm_generic_int_ll64_h 32e27 4|2w6 6r51 6r88 11r17 12r15 12r52 17r17
+. 18r16 19r23 19r60
+18M12*uu_u8{6|47M9} 4|6r74 11r40 12r38 17r40 18r39 19r46
+24I12*uu_s32{6|35I9} 4|6r111 12r75 19r83
+X 4 i2c_interface_c.ads
+4K9*i2c_interface_c 22l5 22e20
+6V13*read_byte_data{3|24I12} 6>29 6>41 7b<c,read_byte_data>22
+6i29 file{6|35I9}
+6m41 command{3|18M12}
+9V10*write_byte_data{3|24I12} 10>7 11>7 12>7 13b<c,write_byte_data>22
+10i7 file{6|35I9}
+11m7 command{3|18M12}
+12m7 value{3|18M12}
+15V11*read_i2c_block_data{3|24I12} 16>7 17>7 18>7 19^7 20b<c,read_i2c_block_data>22
+16i7 file{6|35I9}
+17m7 command{3|18M12}
+18m7 length{3|18M12}
+19p7 values(3|18M12)
+X 5 interfac.ads
+36K9*Interfaces 4|1r6 1r24 5|171e15
+X 6 i-c.ads
+18K20*C 4|1w17 1r35 6|230e17
+35I9*int<integer> 4|6r36 10r14 16r14
+47M9*unsigned_char
+

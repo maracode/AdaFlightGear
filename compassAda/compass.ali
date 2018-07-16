@@ -1,0 +1,40 @@
+V "GNAT Lib v4.6"
+P
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnn
+
+U compass%b		compass.adb		0cc2844f OO PK IL
+W imu%s			imu.adb			imu.ali
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.adb			i-c.ali
+
+U compass%s		compass.ads		b5573251 EE NE OO PK IL
+
+D ada.ads		20070406091342 3ffc8e18
+D a-unccon.ads		20070406091342 f9eb8f06
+D asm_generic_int_ll64_h.ads  20180626014704 81dc4cda
+D compass.ads		20180626035104 b5573251
+D compass.adb		20180626194543 e4fa4625
+D imu.ads		20180626185831 ddf3c8ff
+D interfac.ads		20090409150019 f77d8799
+D i-c.ads		20101007125900 809c38c4
+D i-cexten.ads		20101019103052 1e6d46de
+D system.ads		20100122115545 d30b9abe
+D s-exctab.ads		20090417131547 66e51330
+D s-parame.ads		20091130110856 9c5d83fa
+D s-stalib.ads		20101021102512 c4241c00
+X 4 compass.ads
+1K9*compass 3l5 3e12 5|3b14 32l5 32t12
+2U11*start 5|6b11 27l5 27t10
+X 5 compass.adb
+5a9 magRaw(8|35I9) 11m21 29m4 30m4 31m4
+X 6 imu.ads
+2K9*imu 5|1w6 1r15 8r9 9r9 11r9 6|9e8
+3U11*detectIMU 5|8s13
+4U11*enableIMU 5|9s13
+8U11*readMag 5|11s13
+X 7 interfac.ads
+36K9*Interfaces 5|2r6 2r24 5r34 7|171e15
+X 8 i-c.ads
+18K20*C 5|2w17 2r35 5r45 8|230e17
+35I9*int<integer> 5|5r47
+

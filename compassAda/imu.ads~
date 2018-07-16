@@ -1,0 +1,9 @@
+with asm_generic_int_ll64_h; use  asm_generic_int_ll64_h;
+package imu is
+procedure detectIMU;
+procedure enableIMU;
+procedure writeAccReg(reg: uu_u8; value: uu_u8);
+procedure writeMagReg(reg: uu_u8; value: uu_u8);
+procedure writeGyrReg(reg: uu_u8; value: uu_u8);
+procedure readMag(val: uu_s32);
+end imu;

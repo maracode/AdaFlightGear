@@ -1,0 +1,134 @@
+V "GNAT Lib v4.6"
+P
+R nnnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+
+U i2c_dev_h%s		i2c_dev_h.ads		2948f42d NE OO PK IL
+W asm_generic_int_ll64_h%s  asm_generic_int_ll64_h.ads  asm_generic_int_ll64_h.ali
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.adb			i-c.ali
+W interfaces.c.strings%s  i-cstrin.adb		i-cstrin.ali
+
+D ada.ads		20070406091342 3ffc8e18
+D a-except.ads		20090727140100 0c711ac9
+D a-unccon.ads		20070406091342 f9eb8f06
+D asm_generic_int_ll64_h.ads  20180626014704 81dc4cda
+D i2c_dev_h.ads		20180626054818 5b968633
+D interfac.ads		20090409150019 f77d8799
+D i-c.ads		20101007125900 809c38c4
+D i-cexten.ads		20101019103052 1e6d46de
+D i-cstrin.ads		20090417131547 f3023ec4
+D system.ads		20100122115545 d30b9abe
+D s-exctab.ads		20090417131547 66e51330
+D s-parame.ads		20091130110856 9c5d83fa
+D s-soflin.ads		20090729085153 9414c974
+D s-stache.ads		20090417130712 596fc1b4
+D s-stalib.ads		20101021102512 c4241c00
+D s-stoele.ads		20090417130712 facd7d98
+D s-stoele.adb		20100617152355 afc5dc80
+D s-traent.ads		20090417130712 5221ee41
+X 4 asm_generic_int_ll64_h.ads
+4K9*asm_generic_int_ll64_h 32e27 5|2w6 83r22 97r61 101r28 103r28 130r28 131r25
+. 132r22 141r23 149r17 151r44 154r56 154r93 157r53 160r55 160r92 163r61 163r98
+. 168r17 169r15 169r52 172r61 172r98 177r17 178r15 178r53 183r17 184r15 184r53
+. 190r17 191r23 191r60 196r17 197r16 198r23 198r60 208r17 209r16 210r23 210r60
+. 215r17 216r16 217r23 217r60 223r17 224r16 225r23 225r60
+18M12*uu_u8{7|47M9} 5|97r84 101r51 130r51 131r48 149r40 154r79 160r78 163r84
+. 168r40 169r38 172r84 177r40 183r40 190r40 191r46 196r40 197r39 198r46 208r40
+. 209r39 210r46 215r40 216r39 217r46 223r40 224r39 225r46
+22M12*uu_u16{7|44M9} 5|83r45 103r51 178r38 184r38
+24I12*uu_s32{7|35I9} 5|151r67 154r116 157r76 160r115 163r121 169r75 172r121
+. 178r76 184r76 191r83 198r83 210r83 217r83 225r83
+26M12*uu_u32{7|43M9} 5|132r45 141r46
+X 5 i2c_dev_h.ads
+6K9*i2c_dev_h 228l5 228e14
+37i4*I2C_SMBUS_BLOCK_MAX{integer}
+52m4*I2C_SLAVE{7|45M9}
+82R9*i2c_msg 87e14 88r39 140r21
+83m7*addr{4|22M12}
+84m7*flags{7|44M9}
+85i7*len{7|36I9}
+86p7*buf{9|46P9}
+97A9*anon693_anon695_array(4|18M12)<integer> 105r29
+98R9*i2c_smbus_data 98d25 107e14 108r39 109r28 133r21 151r21
+98m25*discr{7|43M9} 99r12
+101m13*byte{4|18M12}
+103m13*word{4|22M12}
+105a13*block{97A9}
+129R9*i2c_smbus_ioctl_data 134e14 135r39
+130m7*read_write{4|18M12}
+131m7*command{4|18M12}
+132m7*size{4|26M12}
+139R9*i2c_rdwr_ioctl_data 142e14 143r39
+141m7*nmsgs{4|26M12}
+146V13*i2c_smbus_access{4|24I12} 147>7 148>7 149>7 150>7 151^7 152b<c,i2c_smbus_access>22
+147i7 file{7|35I9}
+148e7 read_write{7|72E9}
+149m7 command{4|18M12}
+150i7 size{7|35I9}
+151p7 data(98R9)
+154V13*i2c_smbus_write_quick{4|24I12} 154>36 154>48 155b<c,i2c_smbus_write_quick>22
+154i36 file{7|35I9}
+154m48 value{4|18M12}
+157V13*i2c_smbus_read_byte{4|24I12} 157>34 158b<c,i2c_smbus_read_byte>22
+157i34 file{7|35I9}
+160V13*i2c_smbus_write_byte{4|24I12} 160>35 160>47 161b<c,i2c_smbus_write_byte>22
+160i35 file{7|35I9}
+160m47 value{4|18M12}
+163V13*i2c_smbus_read_byte_data{4|24I12} 163>39 163>51 164b<c,i2c_smbus_read_byte_data>22
+163i39 file{7|35I9}
+163m51 command{4|18M12}
+166V13*i2c_smbus_write_byte_data{4|24I12} 167>7 168>7 169>7 170b<c,i2c_smbus_write_byte_data>22
+167i7 file{7|35I9}
+168m7 command{4|18M12}
+169m7 value{4|18M12}
+172V13*i2c_smbus_read_word_data{4|24I12} 172>39 172>51 173b<c,i2c_smbus_read_word_data>22
+172i39 file{7|35I9}
+172m51 command{4|18M12}
+175V13*i2c_smbus_write_word_data{4|24I12} 176>7 177>7 178>7 179b<c,i2c_smbus_write_word_data>22
+176i7 file{7|35I9}
+177m7 command{4|18M12}
+178m7 value{4|22M12}
+181V13*i2c_smbus_process_call{4|24I12} 182>7 183>7 184>7 185b<c,i2c_smbus_process_call>22
+182i7 file{7|35I9}
+183m7 command{4|18M12}
+184m7 value{4|22M12}
+188V13*i2c_smbus_read_block_data{4|24I12} 189>7 190>7 191^7 192b<c,i2c_smbus_read_block_data>22
+189i7 file{7|35I9}
+190m7 command{4|18M12}
+191p7 values(4|18M12)
+194V13*i2c_smbus_write_block_data{4|24I12} 195>7 196>7 197>7 198^7 199b<c,i2c_smbus_write_block_data>22
+195i7 file{7|35I9}
+196m7 command{4|18M12}
+197m7 length{4|18M12}
+198p7 values(4|18M12)
+206V13*i2c_smbus_read_i2c_block_data{4|24I12} 207>7 208>7 209>7 210^7 211b<c,i2c_smbus_read_i2c_block_data>22
+207i7 file{7|35I9}
+208m7 command{4|18M12}
+209m7 length{4|18M12}
+210p7 values(4|18M12)
+213V13*i2c_smbus_write_i2c_block_data{4|24I12} 214>7 215>7 216>7 217^7 218b<c,i2c_smbus_write_i2c_block_data>22
+214i7 file{7|35I9}
+215m7 command{4|18M12}
+216m7 length{4|18M12}
+217p7 values(4|18M12)
+221V13*i2c_smbus_block_process_call{4|24I12} 222>7 223>7 224>7 225^7 226b<c,i2c_smbus_block_process_call>22
+222i7 file{7|35I9}
+223m7 command{4|18M12}
+224m7 length{4|18M12}
+225p7 values(4|18M12)
+X 6 interfac.ads
+36K9*Interfaces 5|1r6 1r24 3r6 4r6 52r16 86r13 6|171e15
+X 7 i-c.ads
+18K20*C 5|1w17 1r35 3r17 4w17 52r27 86r24 7|230e17
+35I9*int<integer> 5|147r14 150r14 154r43 157r41 160r42 163r46 167r14 172r46
+. 176r14 182r14 189r14 195r14 207r14 214r14 222r14
+36I9*short<short_integer> 5|85r21
+43M9*unsigned 5|98r33
+44M9*unsigned_short 5|84r23
+45M9*unsigned_long 5|52r29
+47M9*unsigned_char
+72E9*char<character> 5|148r20
+X 9 i-cstrin.ads
+36K22*Strings 5|3w19 86r26 9|102e25
+46P9*chars_ptr(character) 5|86r34
+
